@@ -65,7 +65,7 @@ for epoch in range(num_epochs):
     outputs = model(inputs) #推导
     loss = criterion(outputs, targets) #求解loss,计算损失函数
     loss.backward()  #反向传播求解梯度，来源是torch.autograd.backward，使用backward()可以计算loss的梯度，代码loss.backward()执行后，loss中各个parameters的梯度得到更新，比如loss的parameter中有个变量是x，那么执行loss.backward之后，loss关于变量x的梯度就保存在x.grad中，可以通过x.grad来查看。
-    optimizer.step() # 更新权重参数    
+    optimizer.step() # 更新权重参数， 只对loss的parameter做单步更新，所谓的更新，就是新parameter值=原parameter值−learningr​ate∗parameter.grad(导数值)
     if (epoch+1) % 5 == 0:#每5次epoch打印一次结果
         print ('Epoch [%d/%d], Loss: %.4f' 
                %(epoch+1, num_epochs, loss.item()))
