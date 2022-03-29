@@ -39,7 +39,8 @@ plt.ylabel('y_train')
 class LinearRegression(nn.Module):
     def __init__(self, input_size, output_size):
         super(LinearRegression, self).__init__()
-        self.linear = nn.Linear(input_size, output_size)  
+        #in_features指的是输入的二维张量的大小,out_features指的是输出的二维张量的大小
+        self.linear = nn.Linear(in_features=input_size, out_features=output_size)  
     
     def forward(self, x):
         out = self.linear(x)
