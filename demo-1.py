@@ -37,7 +37,8 @@ plt.ylabel('y_train')
 
 # Linear Regression Model
 class LinearRegression(nn.Module):
-    def __init__(self, input_size, output_size):
+    # ：前一层网络神经元的个数
+    def __init__(self, input_size, output_size,bias=True):
         super(LinearRegression, self).__init__()
         #in_features指的是输入的二维张量的大小,out_features指的是输出的二维张量的大小
         self.linear = nn.Linear(in_features=input_size, out_features=output_size)  
